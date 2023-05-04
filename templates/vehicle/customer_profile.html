@@ -1,0 +1,90 @@
+{% extends 'vehicle/customerbase.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style media="screen">
+    img{
+    border-radius: 50%;
+  }
+  .center {
+    margin: auto;
+    width: 60%;
+      margin-left: 30%;
+  }
+
+  .img{
+      margin-left: 10%;
+  }
+  .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #1e94f4;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #ffffff;
+}
+
+.button2:hover {
+  background-color: #ffffff;
+  color: white;
+}
+
+  </style>
+</head>
+
+<br><br><br><br><br>
+<div class="center">
+
+  <div class="w3-panel w3">
+      <img class="img" style="width:200px; height:200px; margin-left:200px;" src="{%static "images/admin.png"%}" alt="">
+    <h3 class="w3-text-orange" style="text-shadow:1px 1px 0 #444"><b>Аты : {{customer}}</b></h3>
+    <h3 class="w3-text-orange" style="text-shadow:1px 1px 0 #444"><b>Телефон : {{customer.mobile}}</b></h3>
+
+    <h3 class="w3-text-orange" style="text-shadow:1px 1px 0 #444"><b>Мекен-жай : {{customer.address}}</b></h3>
+  </div>
+</div>
+
+<div style="text-align: center;">
+  <a href="/edit-customer-profile"><button class="button" ><span>Профиль жаңарту </span></button></a>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock content %}

@@ -1,0 +1,84 @@
+{% extends 'vehicle/adminbase.html' %}
+{% load widget_tweaks %}
+
+
+
+
+{% block content %}
+
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+        margin-left: 30%;
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.1rem;
+      margin-left: 35%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+    .xyz{
+      
+      display: table;
+      margin-right: auto;
+      margin-left: auto;
+            }
+  </style>
+
+ 
+</head>
+<br><br><br><br>
+<form method="post"  autocomplete="off">
+  {% csrf_token %}
+  <div class="container register-form">
+     
+    <div class="form xyz">
+      
+
+      <div class="form-content">
+        <div class="note">
+            <p>ҚАТЫСУДЫ ТЕКСЕРУ ҮШІН КҮНДІ ЕНГІЗУ</p>
+          </div>
+        <div class="row">
+            
+          <div class="col-md-12">
+            <div class="form-group">
+              {% render_field form.date class="form-control" placeholder="Күнді енгізу ай/күн/жыл" %}
+            </div>
+
+          </div>
+
+        </div>
+        <button type="submit" class="btnSubmit">Шығару</button>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+
+
+{% endblock content %}
