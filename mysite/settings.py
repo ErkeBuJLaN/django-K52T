@@ -15,6 +15,9 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
+STATIC_DIR=os.path.join(BASE_DIR,'static')
+MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'vehicle',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +64,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [[TEMPLATE_DIR]],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,11 +86,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ["PGDATABASE"],
-        'USER': os.environ["PGUSER"],
-        'PASSWORD': os.environ["PGPASSWORD"],
-        'HOST': os.environ["PGHOST"],
-        'PORT': os.environ["PGPORT"],
+        'NAME': os.getenv("PGDATABASE"),
+        'USER': os.getenv("PGUSER"),
+        'PASSWORD': os.getenv("PGPASSWORD"),
+        'HOST': os.getenv("PGHOST"),
+        'PORT': os.getenv("PGPORT"),
     }
 }
 
